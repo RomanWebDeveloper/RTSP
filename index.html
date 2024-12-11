@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" href="custom-select/custom-select.css"> 
+	<link rel="stylesheet" href="css/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://code.jquery.com/jquery-3.3.1.js" ></script>
+	<meta name="description" content="">
+	<meta name="keywords" content=""> 
+    <meta name="robots" content="none">
+	<title>RTSP-просмотр</title>
+</head>
+<body>
+
+	<header class="header">
+		<div class="container">
+			<nav class="navbar">
+				<a href="#" class="logo">
+					<img src="images/RTSP.ME.svg" width="133" height="40" alt="RTSP.ME">
+				</a>
+				<ul class="nav-menu">
+					<li class="nav-item"><a href="#" class="nav-link">Что мы делаем</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">Требования</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">Тарифы</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">Как смотреть</a></li>
+				</ul>
+				<div class="hamburger">
+		          <span class="bar"></span>
+		          <span class="bar"></span>
+		          <span class="bar"></span>
+		        </div>
+		        <button class="btn btn-modal js-open-modal" data-modal="1" type="button">Войти</button>
+				<div class="modal" data-modal="1">
+					<span class="close js-modal-close">&times;</span>
+					<div class="modal__content">
+						<h2 class="modal__title">вход в аккаунт</h2>
+						<p class="modal__text">Войдите в аккаунт, чтобы получить доступ к личному кабинету</p>
+						<form action="/" method="POST" class="form">
+	    					<div class="form__row">
+	    						<label class="form__label">
+	    							<span class="form__descr">ВВЕДИТЕ ВАШ eMAIL</span>
+	    							<input type="email" name="email" placeholder="example@email.com" class="form__input">
+	    						</label>
+	    						<label class="form__label">
+	    							<span class="form__descr">ВВЕДИТЕ ВАШ пароль</span>
+	    							<input type="password" name="password" placeholder="Пароль" class="form__input">
+	    						</label>
+	    						<button class="btn form__btn" type="submit">вОЙТИ</button>
+	    						<button class="btn form__btn form__btn-big form__btn-fill" type="submit">СБРОСИТЬ ПАРОЛЬ</button>
+	    					</div>
+	    				</form>
+	    				<div class="modal__info">Нет аккаунта? <a class="modal__link" href="#">Регистрация</a></div>
+					</div>
+				</div>
+				<div class="overlay js-overlay-modal"></div>
+			</nav>
+		</div>
+	</header>
+
+	<main>
+		
+		<section class="intro">
+			<div class="container">
+				<h1 class="intro__title">Cервис создания RTSP трансляций</h1>
+				<div class="info">
+					<form action="/" method="POST" class="form">
+						<div class="form__info">		
+							<div class="form__input-wrapper">
+								<label class="form__label form__info-label">
+								    <span class="form__descr">ВАША RTSP-ССЫЛКА (H.264)</span>
+								    <input class="form__input" name="text" placeholder="rtsp://admin:pass@92.92.92:554/main" type="text">
+							    </label>
+							</div>
+							<div class="form__input-wrapper">
+								<label class="form__label form__info-label">
+								    <span class="form__descr">ВВЕДИТЕ ВАШ eMAIL</span>
+								    <input class="form__input" name="email" placeholder="example@email.com" type="email">
+							    </label>
+							</div>
+							<div class="form__input-wrapper">
+                                <label for="location" class="form__label form__info-label">
+                                	<span class="form__descr">Ближайший дата центр</span>
+                                </label>
+                                <select name="location" id="location" class="form__select">
+                                    <option value="One">Россия / Москва</option>
+                                    <option value="Two">Санкт-Петербург</option>
+                                    <option value="Free">Екатеринбург </option>
+                                </select>
+                             </div>
+							<div class="form__input-wrapper">
+								<button class="btn form__btn" type="button">сОЗДАТЬ ТРАНСЛЯЦИЮ</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
+
+		<section class="service">
+			<div class="container">
+				<div class="section__header">
+					<div class="section__info">Услуга</div>
+					<h2 class="section__title">Что мы можем предложить вам</h2>
+				</div>
+				<ul class="service__list">
+					<li class="service__item">
+						<article class="service__wrapper">
+							<div class="service__header">
+								<div class="service__num">01</div>
+								<img src="images/mdi_web-camera.png" width="36" height="36" alt="IP-камера">
+							</div>
+							<img class="service__img" src="images/house_1.jpg" width="395" height="200" alt="дом">
+							<div class="service__content">
+								<h3 class="service__title">Ваша IP-камера (DVR, NVR)</h3>
+								<p class="service__text">Забираем поток с вашей IP-камеры</p>
+							</div>
+						</article>
+					</li>
+					<li class="service__item">
+						<article class="service__wrapper">
+							<div class="service__header">
+								<div class="service__num">02</div>
+								<img src="images/Settings.png" width="36" height="36" alt="установка">
+							</div>
+							<div class="service__photo">
+								<div class="service__col">
+									<img class="service__img" src="images/house_2.jpg" width="185" height="96" alt="дом">
+								</div>
+								<div class="service__col">
+									<img class="service__img" src="images/house_3.jpg" width="185" height="96" alt="дом">
+								</div>
+								<div class="service__col">
+									<img class="service__img" src="images/house_4.jpg" width="185" height="96" alt="дом">
+								</div>
+								<div class="service__col">
+									<img class="service__img" src="images/house_5.jpg" width="185" height="96" alt="дом">
+								</div>
+							</div>
+							<div class="service__content">
+								<h3 class="service__title">Медиа-сервер</h3>
+								<p class="service__text">Подготавливаем видео для трансляции на сайте и мобильных платформах</p>
+							</div>
+						</article>
+					</li>
+					<li class="service__item">
+						<article class="service__wrapper">
+							<div class="service__header">
+								<div class="service__num">03</div>
+								<img src="images/Play.png" width="36" height="36" alt="Play">
+							</div>
+							<div class="service__photo">
+								<div class="service__col">
+									<img class="service__img" src="images/house_6.jpg" width="185" height="96" alt="дом">
+								</div>
+								<div class="service__col">
+									<img class="service__img" src="images/house_6.jpg" width="185" height="96" alt="дом">
+								</div>
+								<div class="service__col">
+									<img class="service__img" src="images/house_7.jpg" width="185" height="96" alt="дом">
+								</div>
+								<div class="service__col">
+									<img class="service__img" src="images/house_6.jpg" width="185" height="96" alt="дом">
+								</div>
+							</div>
+							<div class="service__content">
+								<h3 class="service__title">Сервер ретрансляции</h3>
+								<p class="service__text">Дублируем видео, если смотрящих больше, чем один</p>
+							</div>
+						</article>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="trust">
+	      <div class="container">
+	      	<div class="section__header">
+	      		<div class="section__info">Статистика</div>
+	      		<h2 class="section__title section__title-fill">нам доверяют</h2>
+	      	</div>
+	        <ul class="trust__list">
+	          <li class="trust__item">
+	            <span class="trust__number" data-goal="98 000">0</span>
+	            <span class="trust__title">Пользователей</span>
+	          </li>
+	          <li class="trust__item">
+	            <span class="trust__number" data-goal="450 000">0</span>
+	            <span class="trust__title">Трансляций</span>
+	          </li>
+	          <li class="trust__item">
+	            <span class="trust__number" data-goal="23 000 000">0</span>
+	            <span class="trust__title">Показов</span>
+	          </li>
+	        </ul>
+	      </div>
+	    </section>
+
+	    <section class="advantage">
+	    	<div class="container">
+	    		<div class="section__header">
+	    			<div class="section__info">Преимущества</div>
+	    			<h2 class="section__title">Почему стоит выбрать наш сервис</h2>
+	    		</div>
+	    		<ul class="advantage__list">
+	    			<li class="advantage__item">
+	    				<article class="advantage__wrapper">
+	    					<div class="advantage__photo">
+	    						<img class="advantage__img" src="images/computer.svg" width="120" height="120" alt="компьютер">
+	    					</div>
+	    					<div class="advantage__content">
+	    						<h3 class="advantage__title">простота <br> использования</h3>
+	    						<p class="advantage__text">Интуитивно понятный интерфейс позволяет пользователям легко создавать и настраивать трансляции без специальных знаний и навыков.</p>
+	    					</div>
+	    				</article>
+	    			</li>
+	    			<li class="advantage__item">
+	    				<article class="advantage__wrapper">
+	    					<div class="advantage__photo">
+	    						<img class="advantage__img" src="images/mobile.svg" width="120" height="120" alt="мобильный">
+	    					</div>
+	    					<div class="advantage__content">
+	    						<h3 class="advantage__title">Поддержка <br> различных устройств</h3>
+	    						<p class="advantage__text">Пользователи могут просмотривать трансляцию с помощью различных устройств, таких как компьютеры, планшеты и смартфоны.</p>
+	    					</div>
+	    				</article>
+	    			</li>
+	    			<li class="advantage__item">
+	    				<article class="advantage__wrapper">
+	    					<div class="advantage__photo">
+	    						<img class="advantage__img" src="images/lock.svg" width="120" height="120" alt="замок">
+	    					</div>
+	    					<div class="advantage__content">
+	    						<h3 class="advantage__title">Безопасность <br> и конфиденциальность</h3>
+	    						<p class="advantage__text">Мы заботимся о безопасности ваших данных. Сервис защищает информацию пользователей и сохраняет конфиденциальность их материалов.</p>
+	    					</div>
+	    				</article>
+	    			</li>
+	    			<li class="advantage__item">
+	    				<article class="advantage__wrapper">
+	    					<div class="advantage__photo">
+	    						<img class="advantage__img" src="images/clock.svg" width="120" height="120" alt="часы">
+	    					</div>
+	    					<div class="advantage__content">
+	    						<h3 class="advantage__title">Техническая <br> поддержка 24/7</h3>
+	    						<p class="advantage__text">Опытные специалисты технической поддержки всегда на связи и готовы помочь вам решить любую проблему и ответить на вопросы.</p>
+	    					</div>
+	    				</article>
+	    			</li>
+	    			<li class="advantage__item">
+	    				<article class="advantage__wrapper">
+	    					<div class="advantage__photo">
+	    						<img class="advantage__img" src="images/wallet.svg" width="120" height="120" alt="кошелек">
+	    					</div>
+	    					<div class="advantage__content">
+	    						<h3 class="advantage__title">Гибкая <br> ценовая политика</h3>
+	    						<p class="advantage__text">Первая камера предоставляется бесплатно с возможностью до 1 000 просмотров в месяц. Стоимость просмотра дополнительных камер начинается от 300 ₽/месяц.</p>
+	    					</div>
+	    				</article>
+	    			</li>
+	    			<li class="advantage__item">
+	    				<article class="advantage__wrapper">
+	    					<div class="advantage__photo">
+	    						<img class="advantage__img" src="images/picture.svg" width="120" height="120" alt="цвет изображения">
+	    					</div>
+	    					<div class="advantage__content">
+	    						<h3 class="advantage__title">Запись <br> и хранение</h3>
+	    						<p class="advantage__text">Сервис предлагает функцию записи трансляций, что позволяет сохранять видео в архиве для дальнейшего просмотра.</p>
+	    					</div>
+	    				</article>
+	    			</li>
+	    		</ul>
+	    	</div>
+	    </section>
+
+	    <section class="broadcast">
+	    	<div class="container">
+	    		<div class="broadcast__wrapper">
+	    			<div class="broadcast__content">
+	    				<h2 class="broadcast__title">Снимайте что угодно, <br> мы поможем с трансляцией</h2>
+	    				<p class="broadcast__text">Обращайтесь к нам с любыми вопросами, и мы обязательно ответим в ближайшее время</p>
+	    				<button class="btn btn-broadcast" type="button">Попробовать</button>
+	    			</div>
+	    		</div>
+	    	</div>
+	    </section>
+
+	    <section class="requirements">
+	    	<div class="container">
+	    		<div class="section__header">
+	    			<div class="section__info">ЧТО?</div>
+	    			<h2 class="section__title section__title-big">Требования для создания RTSP-трансляции</h2>
+	    		</div>
+	    		<div class="requirements__slider">
+	    			<div class="requirements__item">
+	    				<div class="requirements__content">
+		    				<h3 class="requirements__title">ЧТО НЕОБХОДИМО</h3>
+		    				<ul class="requirements__list">
+		    					<li class="requirements__items">1.IP-КАМЕРА, DVR, NVR (RTSP, h264).</li>
+		    					<li class="requirements__items">2.БЕЗЛИМИТНЫЙ ИНТЕРНЕТ.</li>
+		    					<li class="requirements__items">3.СТАТИЧЕСКИЙ IP-АДРЕС.</li>
+		    					<li class="requirements__items">4.ДОСТУП К НАСТРОЙКАМ МОДЕМА.</li>
+		    				</ul>
+		    			</div>
+		    			<div class="requirements__photo">
+							<picture>
+							  <source srcset="images/esxhcx_cctv-tool-blue-sky-min.jpg" media="(max-width: 768px)">
+							  <img class="requirements__img" src="images/esxhcx_cctv-tool-blue-sky.jpg" width="869" height="480" alt="камера">
+							</picture>
+		    			</div>
+	    			</div>
+	    			<div class="requirements__item">
+	    				<div class="requirements__content">
+		    				<h3 class="requirements__title">КАК НАСТРОИТЬ</h3>
+		    				<ul class="requirements__list">
+		    					<li class="requirements__items">1.УЗНАЙТЕ ВАШ СТАТИЧЕСКИЙ IP-АДРЕС</li>
+		    					<li class="requirements__items">2.НАЙДИТЕ RTSP-ССЫЛКУ ДЛЯ ВАШЕЙ КАМЕРЫ</li>
+		    					<li class="requirements__items">3.НАСТРОЙТЕ ПОРТ-МАППИНГ ПОРТА 554 (TCP/UDP)</li>
+		    					<li class="requirements__items">4.СОЗДАЙТЕ ТРАНСЛЯЦИЮ</li>
+		    				</ul>
+		    			</div>
+		    			<div class="requirements__photo">
+							<picture>
+							  <source srcset="images/esxhcx_cctv-tool-blue-sky-min.jpg" media="(max-width: 768px)">
+							  <img class="requirements__img" src="images/business-people-office.jpg" width="869" height="480" alt="Деловые люди">
+							</picture>
+		    			</div>
+	    			</div>
+	    			<div class="requirements__item">
+	    				<div class="requirements__content">
+		    				<h3 class="requirements__title">Создайте собственное решение</h3>
+		    				<ul class="requirements__list">
+		    					<li class="requirements__items">RTSP, RTMP, HLS(M3U8), M-JPEG, JPEG</li>
+		    					<li class="requirements__items">Поддержка IP, AHD, TVI, CVI камер</li>
+		    					<li class="requirements__items">Бесплатный Dynamic DNS сервис</li>
+		    					<li class="requirements__items">Сервис TURN</li>
+		    				</ul>
+		    			</div>
+		    			<div class="requirements__photo">
+		    				<picture>
+							  <source srcset="images/esxhcx_cctv-tool-blue-sky-min.jpg" media="(max-width: 768px)">
+							  	<img class="requirements__img" src="images/laptop.jpg" width="869" height="480" alt="ноутбук">
+							</picture>
+		    			</div>
+	    			</div>
+	    		</div>
+	    	</div>
+	    </section>
+
+	    <section class="tariffs">
+	    	<div class="container">
+	    		<div class="section__header">
+	    			<div class="section__info">1-я камера бесплатно <br> (до 1 000 просмотров в месяц)</div>
+	    			<h2 class="section__title section__title-big">Наши Тарифы на использование сервиса</h2>
+	    		</div>
+				<table class="tariffs__list">
+					<thead>
+						<tr>
+							<th>Просмотры в месяц</th>
+							<th>Цена</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>100 - 10 000</td>
+							<td>300 руб</td>
+						</tr>
+						<tr>
+							<td>10 000 - 100 000</td>
+							<td>1 000 руб</td>
+						</tr>
+						<tr>
+							<td>100 000 - 1 000 000</td>
+							<td>8 000 руб</td>
+						</tr>
+						<tr>
+							<td>1 000 000+</td>
+							<td>112@rtsp.me</td>
+						</tr>
+					</tbody>
+				</table>
+	    	</div>
+	    </section>
+
+	    <section class="watch">
+	    	<div class="container">
+	    		<div class="section__header">
+	    			<div class="section__info">КАК?</div>
+	    			<h2 class="section__title">КАК СМОТРЕТЬ ТРАНСЛЯЦИЮ </h2>
+	    		</div>
+	    		<div class="watch__wrapper">
+	    			<div class="watch__content">
+	    				<h3 class="watch__title">на своем сайте</h3>
+	    				<p class="watch__text">Размещение трансляций на сайте даёт возможность привлечь новых посетителей и увеличить лояльность существующих клиентов.</p>
+	    			</div>
+	    			<div class="watch__photo">
+						<picture>
+							<source srcset="images/journalist-interviewing2-min.jpg" media="(max-width: 768px)">
+							<img class="requirements__img" src="images/journalist-interviewing.jpg" width="869" height="480" alt="журналист">
+						</picture>
+	    			</div>
+	    		</div>
+	    		<div class="watch__wrapper">
+	    			<div class="watch__photo">
+	    				<picture>
+							 <source srcset="images/woman-smartphone.jpg" media="(max-width: 860px)">
+							<img class="requirements__img" src="images/woman-smartphone.jpg" width="869" height="480" alt="женщина">
+						</picture>
+	    			</div>
+	    			<div class="watch__content">
+	    				<h3 class="watch__title">Делитесь ссылкой на трансляцию</h3>
+	    				<p class="watch__text">Делитесь ссылками на ваши трансляции с друзьями и коллегами, чтобы расширить охват аудитории и увеличить количество просмотров.</p>
+	    			</div>
+	    		</div>
+	    		<div class="watch__wrapper">
+	    			<div class="watch__content">
+	    				<h3 class="watch__title">API PrivateCams</h3>
+	    				<ul class="watch__list">
+	    					<li class="watch__items">Method:POST</li>
+	    					<li class="watch__items">API url:https://rtsp.me/api/</li>
+	    					<li class="watch__items">Method:POST API url:https://rtsp.me/api/ Params: email - current email password - current password id - Unique broadcast ID</li>
+	    				</ul>
+	    			</div>
+	    			<div class="watch__photo">
+	    				<picture>
+							 <source srcset="images/child2.jpg" media="(max-width: 860px)">
+							<img class="requirements__img" src="images/child.jpg" width="869" height="480" alt="ребенок">
+						</picture>
+	    			</div>
+	    		</div>
+	    	</div>
+	    </section>
+
+	    <section class="questions">
+	    	<div class="container">
+	    		<div class="section__header">
+	    			<div class="section__info">FAQ</div>
+	    			<h2 class="section__title">ОТВЕТЫ НА ЧАСТЫЕ ВОПРОСЫ</h2>
+	    		</div>
+	    		<ul class="questions__list">
+	    			<li class="questions__item">
+	    				<button class="questions__accordion">кАКИЕ ПРЕИМУЩЕСТВА У камерЫ наблюдения Линия 5Mp Bullet ?</button>
+						<div class="questions__panel">
+							<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi repellendus ab doloremque fugit, ullam iusto consequatur rerum cupiditate eligendi nemo eius, quae maiores. Officiis voluptates quaerat exercitationem quam fuga! Rem!</p>
+						</div>
+	    			</li>
+	    			<li class="questions__item">
+	    				<button class="questions__accordion">Что делать, если у меня не получается создать трансляцию ?</button>
+						<div class="questions__panel">
+							<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi repellendus ab doloremque fugit, ullam iusto consequatur rerum cupiditate eligendi nemo eius, quae maiores. Officiis voluptates quaerat exercitationem quam fuga! Rem!</p>
+						</div>
+	    			</li>
+	    			<li class="questions__item">
+	    				<button class="questions__accordion">как сохранить трансляцию в архив ?</button>
+						<div class="questions__panel">
+							<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi repellendus ab doloremque fugit, ullam iusto consequatur rerum cupiditate eligendi nemo eius, quae maiores. Officiis voluptates quaerat exercitationem quam fuga! Rem!</p>
+						</div>
+	    			</li>
+	    			<li class="questions__item">
+	    				<button class="questions__accordion">как ПОДЕЛИТЬСЯ ССЫЛКОЙ НА ТРАНСЛЯЦИЮ ?</button>
+						<div class="questions__panel">
+							<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi repellendus ab doloremque fugit, ullam iusto consequatur rerum cupiditate eligendi nemo eius, quae maiores. Officiis voluptates quaerat exercitationem quam fuga! Rem!</p>
+						</div>
+	    			</li>
+	    			<li class="questions__item">
+	    				<button class="questions__accordion">как УЗНАТЬ СВОЙ СТАТИСТИЧЕСКИЙ ip-АДРЕС ?</button>
+						<div class="questions__panel">
+							<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi repellendus ab doloremque fugit, ullam iusto consequatur rerum cupiditate eligendi nemo eius, quae maiores. Officiis voluptates quaerat exercitationem quam fuga! Rem!</p>
+						</div>
+	    			</li>
+	    		</ul>
+	    	</div>
+	    </section>
+
+	    <section class="products">
+	    	<div class="container">
+	    		<div class="section__header">
+	    			<div class="section__info">товары</div>
+	    			<h2 class="section__title">ПродукциЯ НАШЕГО ПРОИЗВОДСТВА</h2>
+	    		</div>
+	    		<ul class="products__list">
+	    			<li class="products__item products__item-big">
+	    				<article class="products__wrapper">
+	    					<div class="products__header">
+	    						<h3 class="products__title">IP-камера наблюдения Линия 5Mp Bullet <span>10 144 ₽</span></h3>
+	    						<div class="products__info">
+	    							<div class="products__descr">NEW</div>
+	    							<a class="products__link" href="#">
+	    								<img src="images/Arrow.svg" width="24" height="24" alt="Arrow">
+	    							</a>
+	    						</div>
+	    					</div>
+	    					<picture>
+								 <source srcset="images/Photoroom-min.png" media="(max-width: 768px)">
+								<img class="products__img" src="images/Photoroom.png" width="821" height="300" alt="Photoroom">
+							</picture>
+	    					<p class="products__text">Обладает разрешением 2592 х 1944 при 25 fps, а также широким углом обзора. Цилиндрический корпус с защитой IP-65 выполнен из металла. Монтажный набор в комплекте. Объектив - 2.8.</p>
+	    				</article>
+	    			</li>
+	    			<li class="products__item">
+	    				<article class="products__wrapper">
+	    					<div class="products__header">
+	    						<h3 class="products__title">Линия Bridge <span>2 286 ₽</span></h3>
+	    						<div class="products__info">
+	    							<div class="products__descr">-25%</div>
+	    							<a class="products__link" href="#">
+	    								<img src="images/Arrow.svg" width="24" height="24" alt="Arrow">
+	    							</a>
+	    						</div>
+	    					</div>
+	    					<picture>
+								 <source srcset="images/Photoroom2-min.png" media="(max-width: 768px)">
+								<img class="products__img" src="images/Photoroom2.png" width="395" height="300" alt="Photoroom">
+							</picture>
+	    					<p class="products__text">Устройство для подключения камер к Облаку без белого IP-адреса. Подключение до 8 IP-камер.</p>
+	    				</article>
+	    			</li>
+	    		</ul>
+	    	</div>
+	    </section>
+
+	    <section class="contact">
+	    	<div class="container">
+	    		<div class="section__header">
+	    			<div class="section__info">форма обратной связи</div>
+	    			<h2 class="section__title section__title-big">свяжитесь с нами по любым вопросам</h2>
+	    		</div>
+	    		<div class="contact__wrapper">
+	    			<div class="contact__photo">
+	    				<picture>
+							<source srcset="images/call-center2.png" media="(max-width: 992px)">
+							<img class="contact__img" src="images/call-center.png" width="869" height="510" alt="колл-центр">
+						</picture>
+	    			</div>
+	    			<div class="contact__form">
+	    				<form action="/" method="POST" class="form">
+	    					<div class="form__row">
+	    						<label class="form__label">
+	    							<span class="form__descr">ФИО*</span>
+	    							<input type="text" name="text" placeholder="Введите ваше ФИО" class="form__input">
+	    						</label>
+	    						<label class="form__label">
+	    							<span class="form__descr">НОМЕР ТЕЛЕФОНА*</span>
+	    							<input type="tel" name="tel" placeholder="(+7) 900 000-99-99" class="form__input">
+	    						</label>
+	    						<label class="form__label">
+	    							<span class="form__descr">КОММЕНТАРИЙ</span>
+	    							<textarea class="form__textarea" placeholder="Введите комментарий или вопрос"></textarea>
+	    						</label>
+	    						<button class="btn form__btn" type="submit">отправить</button>
+	    					</div>
+	    				</form>
+	    			</div>
+	    		</div>
+	    	</div>
+	    </section>
+
+	    <footer class="footer">
+	    	<div class="container">
+	    		<div class="footer__top">
+	    			<div class="footer__info">© 2010-2024 RTSP.ME</div>
+	    			<nav class="footer__nav">
+	    				<ul class="footer__nav-list">
+	    					<li class="footer__nav-item">
+	    						<a class="footer__nav-link" href="#">Правила</a>
+	    					</li>
+	    					<li class="footer__nav-item">
+	    						<a class="footer__nav-link" href="#">Privacy Policy</a>
+	    					</li>
+	    					<li class="footer__nav-item">
+	    						<a class="footer__nav-link" href="#">Fulfilment Policy</a>
+	    					</li>
+	    					<li class="footer__nav-item">
+	    						<a class="footer__nav-link" href="#">Оферта</a>
+	    					</li>
+	    				</ul>
+	    			</nav>
+	    			<ul class="social__list">
+	    				<li class="social__item">
+	    					<a class="social__link" href="#">
+	    						<img src="images/mail.svg" width="24" height="24" alt="mail">
+	    					</a>
+	    				</li>
+	    				<li class="social__item">
+	    					<a class="social__link" href="#">
+	    						<img src="images/whatsapp.svg" width="24" height="24" alt="whatsapp">
+	    					</a>
+	    				</li>
+	    				<li class="social__item">
+	    					<a class="social__link" href="#">
+	    						<img src="images/telegram.svg" width="24" height="24" alt="telegram">
+	    					</a>
+	    				</li>
+	    			</ul>
+	    		</div>
+	    	</div>
+	    </footer>
+
+	</main>
+
+	<script src="custom-select/custom-select.min.js"></script>
+	<script type="text/javascript" src="js/slick.min.js"></script>
+	<script defer type="text/javascript" src="js/app.js"></script>
+
+</body>
+</html>
